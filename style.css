@@ -647,3 +647,345 @@ box-shadow:var(--shadow);
 transform:scale(1.05);
 
 }
+/* ==========================================
+   YUMMIES CO.
+   PART 3 - Responsive & Animations
+==========================================*/
+
+/* Fade In Animation */
+
+.fade-in{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease;
+}
+
+.fade-in.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* Floating WhatsApp Button */
+
+.whatsapp{
+
+position:fixed;
+
+bottom:25px;
+right:25px;
+
+width:65px;
+height:65px;
+
+border-radius:50%;
+
+background:#25D366;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:32px;
+
+color:white;
+
+text-decoration:none;
+
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+z-index:999;
+
+transition:.3s;
+
+}
+
+.whatsapp:hover{
+
+transform:scale(1.1);
+
+}
+
+/* Back To Top Button */
+
+.top-btn{
+
+position:fixed;
+
+bottom:105px;
+right:25px;
+
+width:55px;
+height:55px;
+
+border-radius:50%;
+
+background:var(--emerald);
+
+color:white;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:22px;
+
+text-decoration:none;
+
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+opacity:0;
+
+pointer-events:none;
+
+transition:.3s;
+
+}
+
+.top-btn.show{
+
+opacity:1;
+
+pointer-events:auto;
+
+}
+
+/* Hero Animation */
+
+.hero h1,
+.hero h2{
+
+animation:slideDown 1s ease;
+
+}
+
+.hero p{
+
+animation:fadeUp 1.2s ease;
+
+}
+
+.hero .btn{
+
+animation:fadeUp 1.4s ease;
+
+}
+
+@keyframes slideDown{
+
+from{
+
+opacity:0;
+transform:translateY(-60px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateY(60px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+/* Image Hover */
+
+.gallery img:hover{
+
+transform:scale(1.05) rotate(.5deg);
+
+}
+
+/* Cards */
+
+.card:hover{
+
+transform:translateY(-12px);
+
+}
+
+/* Tablet */
+
+@media(max-width:992px){
+
+header{
+
+flex-direction:column;
+
+padding:20px;
+
+}
+
+nav ul{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:15px;
+
+}
+
+.hero h1,
+.hero h2{
+
+font-size:46px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+}
+
+section{
+
+padding:70px 5%;
+
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+header{
+
+padding:15px;
+
+}
+
+.logo h1{
+
+font-size:26px;
+
+}
+
+.logo p{
+
+font-size:12px;
+
+}
+
+nav ul{
+
+flex-direction:column;
+
+align-items:center;
+
+gap:10px;
+
+margin-top:15px;
+
+}
+
+.hero{
+
+height:auto;
+
+padding-top:180px;
+padding-bottom:100px;
+
+}
+
+.hero h1,
+.hero h2{
+
+font-size:36px;
+
+}
+
+.hero p{
+
+font-size:17px;
+
+}
+
+.btn{
+
+padding:14px 28px;
+
+}
+
+.gallery-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.service-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.contact form{
+
+width:100%;
+
+}
+
+footer{
+
+padding:40px 20px;
+
+}
+
+}
+
+/* Small Phones */
+
+@media(max-width:480px){
+
+.hero h1,
+.hero h2{
+
+font-size:30px;
+
+}
+
+section h2{
+
+font-size:30px;
+
+}
+
+.card{
+
+padding:25px;
+
+}
+
+}
+
+/* Utility */
+
+.text-center{
+
+text-align:center;
+
+}
+
+.mt-50{
+
+margin-top:50
