@@ -1,35 +1,42 @@
-/* ======================================
+/* ==========================================
    YUMMIES CO.
-   Premium Website JavaScript
-======================================*/
+   script.js
+   Part 1
+==========================================*/
 
-// Sticky Header
+document.addEventListener("DOMContentLoaded", function () {
+
 const header = document.querySelector("header");
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 80) {
-        header.style.background = "rgba(58,36,24,.98)";
-        header.style.boxShadow = "0 10px 30px rgba(0,0,0,.25)";
-    } else {
-        header.style.background = "rgba(58,36,24,.92)";
-        header.style.boxShadow = "none";
-    }
+// Sticky Header
+window.addEventListener("scroll", function () {
+
+if (window.scrollY > 50) {
+header.classList.add("sticky");
+} else {
+header.classList.remove("sticky");
+}
+
 });
 
-// Smooth Scroll
+// Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-    anchor.addEventListener("click", function(e){
+anchor.addEventListener("click", function (e) {
 
-        e.preventDefault();
+e.preventDefault();
 
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
+const target = document.querySelector(this.getAttribute("href"));
 
-            behavior:"smooth"
+if(target){
 
-        });
+target.scrollIntoView({
+behavior: "smooth"
+});
 
-    });
+}
+
+});
 
 });
 
@@ -37,7 +44,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 const observer = new IntersectionObserver(entries => {
 
-entries.forEach(entry=>{
+entries.forEach(entry => {
 
 if(entry.isIntersecting){
 
@@ -47,6 +54,8 @@ entry.target.classList.add("show");
 
 });
 
+},{
+threshold:0.2
 });
 
 document.querySelectorAll("section").forEach(section=>{
@@ -57,82 +66,82 @@ observer.observe(section);
 
 });
 
-// Back To Top Button
+// Current Year
 
-const topBtn = document.createElement("a");
+document.querySelectorAll(".year").forEach(year=>{
 
-topBtn.href="#";
+year.textContent=new Date().getFullYear();
 
-topBtn.innerHTML="⬆";
+});
 
-topBtn.className="top-btn";
+});/* ==========================================
+   Part 2
+   Hero Slider & Back To Top
+==========================================*/
 
-document.body.appendChild(topBtn);
+const heroImages=[
 
-window.addEventListener("scroll",()=>{
+"hero.jpg",
+"hero2.jpg",
+"hero3.jpg",
+"hero4.jpg"
 
-if(window.scrollY>500){
+];
 
-topBtn.classList.add("show");
+let heroIndex=0;
 
-}else{
+setInterval(()=>{
 
-topBtn.classList.remove("show");
+const hero=document.querySelector(".hero");
+
+if(hero){
+
+heroIndex++;
+
+if(heroIndex>=heroImages.length){
+
+heroIndex=0;
 
 }
 
-});
+hero.style.backgroundImage=
 
-// Current Year
+`linear-gradient(rgba(0,0,0,.55),
+rgba(0,0,0,.55)),
+url(${heroImages[heroIndex]})`;
 
-document.querySelectorAll("footer").forEach(footer=>{
+}
 
-footer.innerHTML=footer.innerHTML.replace("2026",new Date().getFullYear());
+},6000);
 
-});
-/* ===========================================
-   YUMMIES CO.
-   SCRIPT.JS - PART 2
-   Mobile Menu, Gallery & WhatsApp
-===========================================*/
+// Back To Top
 
-// ==============================
-// MOBILE MENU
-// ==============================
+const topButton=document.createElement("a");
 
-const nav = document.querySelector("nav");
+topButton.href="#";
 
-const menuButton = document.createElement("div");
+topButton.className="top-btn";
 
-menuButton.innerHTML = "☰";
+topButton.innerHTML="↑";
 
-menuButton.className = "menu-button";
+document.body.appendChild(topButton);
 
-header.appendChild(menuButton);
+window.addEventListener("scroll",()=>{
 
-menuButton.addEventListener("click", () => {
+if(window.scrollY>400){
 
-    nav.classList.toggle("mobile-nav");
+topButton.classList.add("show");
 
-});
+}else{
 
-// ==============================
-// CLOSE MENU WHEN LINK CLICKED
-// ==============================
+topButton.classList.remove("show");
 
-document.querySelectorAll("nav a").forEach(link=>{
+}
 
-link.addEventListener("click",()=>{
-
-nav.classList.remove("mobile-nav");
-
-});
-
-});
-
-// ==============================
-// IMAGE LIGHTBOX
-// ==============================
+});/* ==========================================
+   Part 3
+   Gallery Lightbox
+==========================================*/
 
 const lightbox=document.createElement("div");
 
@@ -146,15 +155,11 @@ image.addEventListener("click",()=>{
 
 lightbox.classList.add("active");
 
+lightbox.innerHTML="";
+
 const img=document.createElement("img");
 
 img.src=image.src;
-
-while(lightbox.firstChild){
-
-lightbox.removeChild(lightbox.firstChild);
-
-}
 
 lightbox.appendChild(img);
 
@@ -166,177 +171,30 @@ lightbox.addEventListener("click",()=>{
 
 lightbox.classList.remove("active");
 
-});
-
-// ==============================
-// IMAGE HOVER
-// ==============================
-
-document.querySelectorAll(".gallery img").forEach(img=>{
-
-img.addEventListener("mouseenter",()=>{
-
-img.style.transform="scale(1.05)";
-
-});
-
-img.addEventListener("mouseleave",()=>{
-
-img.style.transform="scale(1)";
-
-});
-
-});
-
-// ==============================
-// FLOATING WHATSAPP BUTTON
-// ==============================
-
-const whatsapp=document.createElement("a");
-
-whatsapp.href="https://wa.me/27XXXXXXXXX";
-
-whatsapp.className="whatsapp";
-
-whatsapp.target="_blank";
-
-whatsapp.innerHTML="💬";
-
-document.body.appendChild(whatsapp);
-
-// ==============================
-// BUTTON RIPPLE EFFECT
-// ==============================
-
-document.querySelectorAll(".btn").forEach(button=>{
-
-button.addEventListener("click",function(e){
-
-const circle=document.createElement("span");
-
-const diameter=Math.max(button.clientWidth,button.clientHeight);
-
-circle.style.width=circle.style.height=`${diameter}px`;
-
-circle.style.left=`${e.offsetX-diameter/2}px`;
-
-circle.style.top=`${e.offsetY-diameter/2}px`;
-
-circle.classList.add("ripple");
-
-const ripple=button.getElementsByClassName("ripple")[0];
-
-if(ripple){
-
-ripple.remove();
-
-}
-
-button.appendChild(circle);
-
-});
-
-});
-
-// ==============================
-// LOADING SCREEN
-// ==============================
-
-window.addEventListener("load",()=>{
-
-const loader=document.querySelector(".loader");
-
-if(loader){
-
-loader.style.opacity="0";
-
-setTimeout(()=>{
-
-loader.remove();
-
-},700);
-
-}
-
-});
-/* ==========================================
-   YUMMIES CO.
-   SCRIPT.JS - PART 3
-   Premium Effects
+});/* ==========================================
+   Part 4
+   Contact Forms
 ==========================================*/
 
-// =====================
-// PARALLAX HERO
-// =====================
+document.querySelectorAll("form").forEach(form=>{
 
-window.addEventListener("scroll", () => {
-
-const hero = document.querySelector(".hero");
-
-if(hero){
-
-hero.style.backgroundPositionY = window.pageYOffset * 0.5 + "px";
-
-}
-
-});
-
-// =====================
-// SCROLL PROGRESS BAR
-// =====================
-
-const progress = document.createElement("div");
-
-progress.style.position = "fixed";
-progress.style.top = "0";
-progress.style.left = "0";
-progress.style.height = "4px";
-progress.style.width = "0%";
-progress.style.background = "#c9a24c";
-progress.style.zIndex = "9999";
-
-document.body.appendChild(progress);
-
-window.addEventListener("scroll", () => {
-
-const winScroll =
-document.documentElement.scrollTop;
-
-const height =
-document.documentElement.scrollHeight -
-document.documentElement.clientHeight;
-
-progress.style.width =
-(winScroll / height) * 100 + "%";
-
-});
-
-// =====================
-// FORM VALIDATION
-// =====================
-
-document.querySelectorAll("form").forEach(form => {
-
-form.addEventListener("submit", function(e){
+form.addEventListener("submit",function(e){
 
 e.preventDefault();
 
-const required =
-this.querySelectorAll("input, textarea");
+let valid=true;
 
-let valid = true;
+this.querySelectorAll("input,textarea").forEach(field=>{
 
-required.forEach(field => {
+if(field.value.trim()===""){
 
-if(field.value.trim() === ""){
+field.style.border="2px solid red";
 
-field.style.border = "2px solid red";
-
-valid = false;
+valid=false;
 
 }else{
 
-field.style.border = "none";
+field.style.border="none";
 
 }
 
@@ -344,7 +202,7 @@ field.style.border = "none";
 
 if(valid){
 
-alert("Thank you! Your enquiry has been sent.");
+alert("Thank you for contacting YUMMIES CO. We will be in touch shortly.");
 
 this.reset();
 
@@ -352,120 +210,21 @@ this.reset();
 
 });
 
-});
+});/* ==========================================
+   Part 5
+   WhatsApp Button
+==========================================*/
 
-// =====================
-// SIMPLE COUNTER
-// =====================
+const whatsapp=document.createElement("a");
 
-document.querySelectorAll(".counter").forEach(counter=>{
+whatsapp.href="https://wa.me/27XXXXXXXXX";
 
-const target = +counter.dataset.target;
+whatsapp.target="_blank";
 
-let count = 0;
+whatsapp.className="whatsapp";
 
-const speed = target / 100;
+whatsapp.innerHTML="💬";
 
-function update(){
+document.body.appendChild(whatsapp);
 
-count += speed;
-
-if(count < target){
-
-counter.innerText = Math.floor(count);
-
-requestAnimationFrame(update);
-
-}else{
-
-counter.innerText = target;
-
-}
-
-}
-
-update();
-
-});
-
-// =====================
-// TESTIMONIAL SLIDER
-// =====================
-
-const testimonials =
-document.querySelectorAll(".testimonial");
-
-let current = 0;
-
-if(testimonials.length){
-
-testimonials[current].classList.add("active");
-
-setInterval(()=>{
-
-testimonials[current].classList.remove("active");
-
-current++;
-
-if(current >= testimonials.length){
-
-current = 0;
-
-}
-
-testimonials[current].classList.add("active");
-
-},5000);
-
-}
-
-// =====================
-// HERO IMAGE SLIDER
-// =====================
-
-const heroImages = [
-
-"images/hero.jpg",
-"images/hero2.jpg",
-"images/hero3.jpg",
-"images/hero4.jpg"
-
-];
-
-let heroIndex = 0;
-
-setInterval(()=>{
-
-const hero = document.querySelector(".hero");
-
-if(hero){
-
-heroIndex++;
-
-if(heroIndex >= heroImages.length){
-
-heroIndex = 0;
-
-}
-
-hero.style.backgroundImage =
-
-`linear-gradient(rgba(0,0,0,.55),
-rgba(0,0,0,.55)),
-url(${heroImages[heroIndex]})`;
-
-}
-
-},7000);
-
-// =====================
-// COPYRIGHT YEAR
-// =====================
-
-document.querySelectorAll(".year").forEach(y=>{
-
-y.textContent = new Date().getFullYear();
-
-});
-
-console.log("YUMMIES CO. Website Loaded Successfully");
+console.log("YUMMIES CO. website loaded successfully.");
