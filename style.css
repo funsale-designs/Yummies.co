@@ -1,7 +1,14 @@
-/* ===================================
+/* =======================================
    YUMMIES CO.
-   Luxury Website Styles
-   =================================== */
+   STYLE.CSS
+   Premium Hospitality Theme
+======================================= */
+
+/* GOOGLE FONTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* RESET */
 
 *{
 margin:0;
@@ -14,22 +21,23 @@ scroll-behavior:smooth;
 }
 
 body{
+
 font-family:'Poppins',sans-serif;
-background:#f8f5f0;
+background:#f8f6f2;
 color:#333;
 line-height:1.6;
+
 }
 
 /* COLOURS */
 
 :root{
 
---emerald:#0d5b43;
---brown:#3d2a1e;
---gold:#c9a24c;
---cream:#faf7f2;
+--green:#0E5A43;
+--brown:#3B261A;
+--gold:#C6A664;
+--cream:#F7F4EF;
 --white:#ffffff;
---shadow:0 10px 30px rgba(0,0,0,.15);
 
 }
 
@@ -41,54 +49,58 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-background:rgba(61,42,30,.95);
+padding:18px 8%;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 8%;
+
+background:rgba(59,38,26,.92);
+
+backdrop-filter:blur(12px);
+
 z-index:999;
+
+transition:.3s;
 
 }
 
 .logo h1{
 
 font-family:'Cinzel',serif;
-font-size:34px;
+font-size:36px;
 color:var(--gold);
 
 }
 
 .logo p{
 
-font-size:14px;
 color:white;
+font-size:14px;
 
 }
+
+/* NAVIGATION */
 
 nav ul{
 
 display:flex;
 list-style:none;
-gap:30px;
+gap:35px;
 
 }
 
 nav a{
 
-text-decoration:none;
 color:white;
+text-decoration:none;
 font-weight:500;
 transition:.3s;
 
 }
 
-nav a:hover{
-
-color:var(--gold);
-
-}
-
-.active{
+nav a:hover,
+nav a.active{
 
 color:var(--gold);
 
@@ -100,68 +112,80 @@ color:var(--gold);
 
 height:100vh;
 
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-
-padding:40px;
-
 background:
 
 linear-gradient(rgba(0,0,0,.55),
 rgba(0,0,0,.55)),
 
-url(images/hero.jpg);
+url(hero.jpg);
 
 background-size:cover;
 background-position:center;
+
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+padding:20px;
 
 }
 
 .hero-text{
 
-max-width:800px;
+max-width:850px;
 
 }
 
-.hero h1,
-.hero h2{
+.hero h1{
 
 font-family:'Cinzel',serif;
-font-size:60px;
+font-size:64px;
+
 color:white;
-margin-bottom:20px;
+
+margin-bottom:25px;
 
 }
 
 .hero p{
 
-font-size:20px;
+font-size:21px;
+
 color:white;
-margin-bottom:35px;
+
+margin-bottom:40px;
 
 }
+
+/* BUTTON */
 
 .btn{
 
 display:inline-block;
-padding:15px 40px;
-background:var(--emerald);
+
+padding:16px 40px;
+
+background:var(--green);
+
 color:white;
+
 text-decoration:none;
+
 border-radius:40px;
-transition:.4s;
+
 font-weight:600;
-border:none;
-cursor:pointer;
+
+transition:.3s;
 
 }
 
 .btn:hover{
 
 background:var(--gold);
-color:black;
+
+color:#222;
+
 transform:translateY(-3px);
 
 }
@@ -170,37 +194,69 @@ transform:translateY(-3px);
 
 section{
 
-padding:90px 8%;
+padding:100px 8%;
 
 }
 
 section h2{
 
 text-align:center;
+
 font-family:'Cinzel',serif;
-font-size:42px;
-margin-bottom:50px;
+
+font-size:44px;
+
+margin-bottom:40px;
+
 color:var(--brown);
+
+}
+
+/* ABOUT */
+
+.about{
+
+background:white;
+
+}
+
+.about p{
+
+max-width:900px;
+
+margin:auto;
+
+text-align:center;
+
+font-size:18px;
+
+}
+
+/* SERVICE GRID */
+
+.service-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
 
 }
 
 /* CARDS */
 
-.service-grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-
-}
-
 .card{
 
 background:white;
+
 padding:35px;
+
 border-radius:18px;
-box-shadow:var(--shadow);
-transition:.4s;
+
+box-shadow:0 10px 30px rgba(0,0,0,.10);
+
+transition:.35s;
 
 }
 
@@ -212,32 +268,64 @@ transform:translateY(-10px);
 
 .card h3{
 
-font-size:26px;
+font-size:28px;
+
+color:var(--green);
+
 margin-bottom:15px;
-color:var(--emerald);
 
 }
 
 .card p{
 
-color:#555;
+margin-bottom:25px;
 
 }
 
-/* ABOUT */
+/* GALLERY */
 
-.about{
+.gallery{
 
-background:white;
+background:var(--cream);
 
 }
-/* ===========================================
-   YUMMIES CO.
+
+.gallery-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+.gallery img{
+
+width:100%;
+
+height:260px;
+
+object-fit:cover;
+
+border-radius:18px;
+
+transition:.3s;
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.05);
+
+}/* =======================================
    PART 2
-   Buttons, Forms, Footer, CTA & Features
-===========================================*/
+   Forms • CTA • Footer • Features
+======================================= */
 
-/* FEATURES SECTION */
+/* FEATURES */
 
 .features{
 background:#ffffff;
@@ -247,30 +335,34 @@ background:#ffffff;
 margin-top:40px;
 }
 
-/* CONTACT SECTION */
+/* CONTACT */
 
 .contact{
 
-background:var(--emerald);
+background:var(--green);
+
+padding:100px 8%;
+
 color:white;
-text-align:center;
 
 }
 
 .contact h2{
 
 color:white;
-margin-bottom:40px;
 
 }
 
 .contact form{
 
-max-width:800px;
+max-width:850px;
+
 margin:auto;
 
 display:flex;
+
 flex-direction:column;
+
 gap:20px;
 
 }
@@ -278,7 +370,6 @@ gap:20px;
 .contact input,
 .contact textarea{
 
-width:100%;
 padding:18px;
 
 border:none;
@@ -295,38 +386,53 @@ outline:none;
 
 .contact textarea{
 
-resize:vertical;
 min-height:180px;
+
+resize:vertical;
 
 }
 
 .contact button{
 
 width:220px;
+
 margin:auto;
 
 }
 
-/* CALL TO ACTION */
+/* CTA */
 
 .cta{
 
-background:linear-gradient(
-135deg,
-var(--brown),
-var(--emerald));
+background:
 
-text-align:center;
+linear-gradient(135deg,
+
+var(--brown),
+
+var(--green));
 
 color:white;
+
+text-align:center;
 
 }
 
 .cta h2{
 
 color:white;
-font-size:46px;
-margin-bottom:30px;
+
+font-size:48px;
+
+}
+
+.cta p{
+
+max-width:750px;
+
+margin:25px auto;
+
+font-size:20px;
 
 }
 
@@ -334,13 +440,13 @@ margin-bottom:30px;
 
 footer{
 
-background:#24170f;
+background:#241710;
 
-color:white;
-
-padding:60px 8%;
+padding:70px 8%;
 
 text-align:center;
+
+color:white;
 
 }
 
@@ -348,7 +454,7 @@ footer h3{
 
 font-family:'Cinzel',serif;
 
-font-size:34px;
+font-size:36px;
 
 color:var(--gold);
 
@@ -360,7 +466,7 @@ footer p{
 
 margin:10px 0;
 
-opacity:.9;
+opacity:.95;
 
 }
 
@@ -370,8 +476,6 @@ color:white;
 
 text-decoration:none;
 
-transition:.3s;
-
 }
 
 footer a:hover{
@@ -380,58 +484,20 @@ color:var(--gold);
 
 }
 
-/* IMAGE HOVER */
-
-.gallery img{
-
-cursor:pointer;
-
-}
-
-.gallery img:hover{
-
-box-shadow:
-
-0 20px 45px rgba(0,0,0,.30);
-
-}
-
-/* BUTTONS */
-
-button{
-
-font-family:'Poppins',sans-serif;
-
-}
-
-.btn{
-
-box-shadow:
-
-0 10px 25px rgba(0,0,0,.25);
-
-}
-
-.btn:hover{
-
-box-shadow:
-
-0 15px 35px rgba(0,0,0,.35);
-
-}
-
-/* PAGE HERO IMAGES */
+/* HERO BANNERS */
 
 .catering-hero{
 
 background:
 
-linear-gradient(rgba(0,0,0,.45),
-rgba(0,0,0,.45)),
+linear-gradient(rgba(0,0,0,.55),
 
-url(images/catering-banner.jpg);
+rgba(0,0,0,.55)),
+
+url(catering-banner.jpg);
 
 background-size:cover;
+
 background-position:center;
 
 }
@@ -440,12 +506,14 @@ background-position:center;
 
 background:
 
-linear-gradient(rgba(0,0,0,.45),
-rgba(0,0,0,.45)),
+linear-gradient(rgba(0,0,0,.55),
 
-url(images/care-banner.jpg);
+rgba(0,0,0,.55)),
+
+url(care-banner.jpg);
 
 background-size:cover;
+
 background-position:center;
 
 }
@@ -454,12 +522,14 @@ background-position:center;
 
 background:
 
-linear-gradient(rgba(0,0,0,.45),
-rgba(0,0,0,.45)),
+linear-gradient(rgba(0,0,0,.55),
 
-url(images/kefi-banner.jpg);
+rgba(0,0,0,.55)),
+
+url(kefi-banner.jpg);
 
 background-size:cover;
+
 background-position:center;
 
 }
@@ -468,13 +538,41 @@ background-position:center;
 
 background:
 
-linear-gradient(rgba(0,0,0,.45),
-rgba(0,0,0,.45)),
+linear-gradient(rgba(0,0,0,.55),
 
-url(images/takeaway-banner.jpg);
+rgba(0,0,0,.55)),
+
+url(takeaway-banner.jpg);
 
 background-size:cover;
+
 background-position:center;
+
+}
+
+/* HOVER EFFECTS */
+
+.card:hover{
+
+border-bottom:5px solid var(--gold);
+
+}
+
+.gallery img:hover{
+
+box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+}
+
+.btn{
+
+box-shadow:0 10px 25px rgba(0,0,0,.20);
+
+}
+
+.btn:hover{
+
+box-shadow:0 15px 35px rgba(0,0,0,.35);
 
 }
 
@@ -482,177 +580,30 @@ background-position:center;
 
 ::-webkit-scrollbar{
 
-width:12px;
+width:10px;
 
 }
 
 ::-webkit-scrollbar-track{
 
-background:#efe8de;
+background:#efe8dc;
 
 }
 
 ::-webkit-scrollbar-thumb{
 
-background:var(--emerald);
+background:var(--green);
 
 border-radius:20px;
 
 }
 
-::-webkit-scrollbar-thumb:hover{
-
-background:var(--brown);
-
-}
-
-/* LINKS */
-
-a{
-
-transition:.3s ease;
-
-}
-
-/* SECTION SPACING */
-
-.services,
-.gallery,
-.about,
-.features{
-
-padding-top:100px;
-padding-bottom:100px;
-
-}
-
-/* CARDS */
-
-.card{
-
-overflow:hidden;
-
-}
-
-.card:hover{
-
-border-bottom:6px solid var(--gold);
-
-}
-
-/* LOGO */
-
-.logo{
-
-cursor:pointer;
-
-}
-
-/* NAVIGATION */
-
-nav ul li{
-
-position:relative;
-
-}
-
-nav ul li::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-6px;
-
-width:0;
-
-height:3px;
-
-background:var(--gold);
-
-transition:.3s;
-
-}
-
-nav ul li:hover::after{
-
-width:100%;
-
-}
-
-/* SMALL DIVIDER */
-
-.divider{
-
-width:120px;
-
-height:4px;
-
-background:var(--gold);
-
-margin:30px auto;
-
-border-radius:10px;
-
-}
-
-/* SHADOWS */
-
-.card,
-.gallery img,
-.btn{
-
-transition:.35s;
-
-}
-.about p{
-
-max-width:900px;
-margin:auto;
-font-size:18px;
-text-align:center;
-
-}
-
-/* GALLERY */
-
-.gallery{
-
-background:var(--cream);
-
-}
-
-.gallery-grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-
-}
-
-.gallery img{
-
-width:100%;
-height:260px;
-object-fit:cover;
-border-radius:15px;
-transition:.4s;
-box-shadow:var(--shadow);
-
-}
-
-.gallery img:hover{
-
-transform:scale(1.05);
-
-}
-/* ==========================================
-   YUMMIES CO.
-   PART 3 - Responsive & Animations
+::-webkit-scroll/* ==========================================
+   PART 3
+   Responsive • Animations • Utilities
 ==========================================*/
 
-/* Fade In Animation */
+/* Fade Animation */
 
 .fade-in{
 opacity:0;
@@ -668,324 +619,156 @@ transform:translateY(0);
 /* Floating WhatsApp Button */
 
 .whatsapp{
-
 position:fixed;
-
 bottom:25px;
 right:25px;
-
 width:65px;
 height:65px;
-
-border-radius:50%;
-
 background:#25D366;
-
+color:white;
+border-radius:50%;
 display:flex;
 justify-content:center;
 align-items:center;
-
-font-size:32px;
-
-color:white;
-
+font-size:30px;
 text-decoration:none;
-
-box-shadow:0 10px 30px rgba(0,0,0,.3);
-
+box-shadow:0 10px 30px rgba(0,0,0,.25);
 z-index:999;
-
 transition:.3s;
-
 }
 
 .whatsapp:hover{
-
 transform:scale(1.1);
-
 }
 
-/* Back To Top Button */
+/* Back To Top */
 
 .top-btn{
-
 position:fixed;
-
 bottom:105px;
 right:25px;
-
 width:55px;
 height:55px;
-
-border-radius:50%;
-
-background:var(--emerald);
-
+background:var(--green);
 color:white;
-
 display:flex;
 justify-content:center;
 align-items:center;
-
-font-size:22px;
-
+border-radius:50%;
 text-decoration:none;
-
-box-shadow:0 10px 25px rgba(0,0,0,.3);
-
+font-size:22px;
 opacity:0;
-
 pointer-events:none;
-
 transition:.3s;
-
+z-index:998;
 }
 
 .top-btn.show{
-
 opacity:1;
-
 pointer-events:auto;
-
 }
 
-/* Hero Animation */
+/* Lightbox */
 
-.hero h1,
-.hero h2{
-
-animation:slideDown 1s ease;
-
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.9);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
+padding:20px;
 }
 
-.hero p{
-
-animation:fadeUp 1.2s ease;
-
+.lightbox.active{
+display:flex;
 }
 
-.hero .btn{
-
-animation:fadeUp 1.4s ease;
-
+.lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:15px;
+box-shadow:0 20px 40px rgba(0,0,0,.5);
 }
 
-@keyframes slideDown{
+/* Mobile Menu Button */
 
-from{
-
-opacity:0;
-transform:translateY(-60px);
-
+.menu-button{
+display:none;
+font-size:30px;
+color:white;
+cursor:pointer;
 }
 
+/* Ripple Effect */
+
+.btn{
+position:relative;
+overflow:hidden;
+}
+
+.ripple{
+position:absolute;
+border-radius:50%;
+transform:scale(0);
+animation:ripple .6s linear;
+background:rgba(255,255,255,.5);
+}
+
+@keyframes ripple{
 to{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-}
-
-@keyframes fadeUp{
-
-from{
-
+transform:scale(4);
 opacity:0;
-transform:translateY(60px);
-
+}
 }
 
-to{
+/* Responsive */
 
-opacity:1;
-transform:translateY(0);
-
-}
-
-}
-
-/* Image Hover */
-
-.gallery img:hover{
-
-transform:scale(1.05) rotate(.5deg);
-
-}
-
-/* Cards */
-
-.card:hover{
-
-transform:translateY(-12px);
-
-}
-
-/* Tablet */
-
-@media(max-width:992px){
+@media (max-width:992px){
 
 header{
-
 flex-direction:column;
-
 padding:20px;
-
 }
 
 nav ul{
-
 flex-wrap:wrap;
-
 justify-content:center;
-
-gap:15px;
-
+gap:18px;
 }
 
-.hero h1,
-.hero h2{
-
-font-size:46px;
-
+.hero h1{
+font-size:50px;
 }
 
 .hero p{
-
 font-size:18px;
-
 }
 
 section{
-
-padding:70px 5%;
-
+padding:80px 5%;
 }
 
 }
 
-/* Mobile */
-
-@media(max-width:768px){
+@media (max-width:768px){
 
 header{
-
 padding:15px;
-
 }
 
 .logo h1{
-
-font-size:26px;
-
+font-size:28px;
 }
 
 .logo p{
-
 font-size:12px;
-
 }
 
-nav ul{
-
-flex-direction:column;
-
-align-items:center;
-
-gap:10px;
-
-margin-top:15px;
-
-}
-
-.hero{
-
-height:auto;
-
-padding-top:180px;
-padding-bottom:100px;
-
-}
-
-.hero h1,
-.hero h2{
-
-font-size:36px;
-
-}
-
-.hero p{
-
-font-size:17px;
-
-}
-
-.btn{
-
-padding:14px 28px;
-
-}
-
-.gallery-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.service-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.contact form{
-
-width:100%;
-
-}
-
-footer{
-
-padding:40px 20px;
-
-}
-
-}
-
-/* Small Phones */
-
-@media(max-width:480px){
-
-.hero h1,
-.hero h2{
-
-font-size:30px;
-
-}
-
-section h2{
-
-font-size:30px;
-
-}
-
-.card{
-
-padding:25px;
-
-}
-
-}
-
-/* Utility */
-
-.text-center{
-
-text-align:center;
-
-}
-
-.mt-50{
-
-margin-top:50
+.menu-button{
+display:block;
+margin-top:15
