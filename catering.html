@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -9,7 +10,7 @@
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 </head>
 
@@ -19,14 +20,14 @@
 
 <div class="logo">
 <h1>YUMMIES CO.</h1>
-<p>Luxury Catering Specialists</p>
+<p>Luxury Catering • Care • Café</p>
 </div>
 
 <nav>
 <ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="catering.html" class="active">Catering</a></li>
-<li><a href="frailcare.html">Frail Care</a></li>
+<li><a href="frailcare.html">Yummies Care</a></li>
 <li><a href="kefi.html">Kefi Café</a></li>
 <li><a href="takeaway.html">Take Away</a></li>
 </ul>
@@ -41,12 +42,24 @@
 <h1>Luxury Catering</h1>
 
 <p>
-Elegant food for every occasion. From intimate gatherings to large corporate events, weddings, birthdays and private celebrations, we create unforgettable dining experiences.
+Elegant catering for weddings, corporate events, birthdays, anniversaries, funerals and every special occasion.
 </p>
 
-<a href="#quote" class="btn">Request a Quote</a>
+<a href="#contact" class="btn">Request a Quote</a>
 
 </div>
+
+</section>
+
+<section class="about">
+
+<h2>Professional Catering</h2>
+
+<p>
+
+Our experienced team creates unforgettable dining experiences using only the freshest ingredients. Whether you're planning an intimate gathering or a large celebration, YUMMIES CO. delivers exceptional food and professional service.
+
+</p>
 
 </section>
 
@@ -57,33 +70,23 @@ Elegant food for every occasion. From intimate gatherings to large corporate eve
 <div class="service-grid">
 
 <div class="card">
-<h3>Corporate Functions</h3>
-<p>Professional catering for meetings, conferences and office events.</p>
+<h3>Wedding Catering</h3>
+<p>Elegant menus and beautiful presentation for your special day.</p>
+</div>
+
+<div class="card">
+<h3>Corporate Events</h3>
+<p>Breakfasts, lunches, conferences and executive functions.</p>
+</div>
+
+<div class="card">
+<h3>Private Functions</h3>
+<p>Birthdays, anniversaries, baby showers and family celebrations.</p>
 </div>
 
 <div class="card">
 <h3>Luxury Platters</h3>
-<p>Beautifully presented savoury and sweet platters made with premium ingredients.</p>
-</div>
-
-<div class="card">
-<h3>Weddings</h3>
-<p>Elegant menus tailored to your special day.</p>
-</div>
-
-<div class="card">
-<h3>Birthday Celebrations</h3>
-<p>Buffets, finger foods and plated meals for every age.</p>
-</div>
-
-<div class="card">
-<h3>Private Events</h3>
-<p>Anniversaries, baby showers and family gatherings.</p>
-</div>
-
-<div class="card">
-<h3>Funeral Catering</h3>
-<p>Professional and compassionate catering during difficult times.</p>
+<p>Freshly prepared savoury and sweet platters for every occasion.</p>
 </div>
 
 </div>
@@ -96,74 +99,40 @@ Elegant food for every occasion. From intimate gatherings to large corporate eve
 
 <div class="gallery-grid">
 
-<img src="images/catering1.jpg" alt="">
-<img src="images/catering2.jpg" alt="">
-<img src="images/catering3.jpg" alt="">
-<img src="images/catering4.jpg" alt="">
-<img src="images/catering5.jpg" alt="">
-<img src="images/catering6.jpg" alt="">
-<img src="images/catering7.jpg" alt="">
-<img src="images/catering8.jpg" alt="">
-<img src="images/catering9.jpg" alt="">
-<img src="images/catering10.jpg" alt="">
+<img src="catering1.jpg" alt="Catering 1">
+<img src="catering2.jpg" alt="Catering 2">
+<img src="catering3.jpg" alt="Catering 3">
+<img src="catering4.jpg" alt="Catering 4">
+<img src="catering5.jpg" alt="Catering 5">
+<img src="catering6.jpg" alt="Catering 6">
+<img src="catering7.jpg" alt="Catering 7">
+<img src="catering8.jpg" alt="Catering 8">
+<img src="catering9.jpg" alt="Catering 9">
+<img src="catering10.jpg" alt="Catering 10">
 
 </div>
 
 </section>
 
-<section class="why">
-
-<h2>Why Choose YUMMIES CO?</h2>
-
-<div class="service-grid">
-
-<div class="card">
-<h3>Fresh Ingredients</h3>
-<p>Only the finest locally sourced ingredients.</p>
-</div>
-
-<div class="card">
-<h3>Professional Staff</h3>
-<p>Experienced chefs and friendly service teams.</p>
-</div>
-
-<div class="card">
-<h3>Custom Menus</h3>
-<p>Designed around your event and budget.</p>
-</div>
-
-<div class="card">
-<h3>Reliable Service</h3>
-<p>On-time delivery with exceptional presentation.</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="quote" class="contact">
+<section id="contact" class="contact">
 
 <h2>Request a Catering Quote</h2>
 
 <form>
 
-<input type="text" placeholder="Your Name">
+<input type="text" placeholder="Full Name" required>
 
-<input type="email" placeholder="Email Address">
+<input type="email" placeholder="Email Address" required>
 
-<input type="text" placeholder="Phone Number">
+<input type="tel" placeholder="Phone Number">
 
 <input type="text" placeholder="Event Type">
 
-<input type="date">
-
 <input type="number" placeholder="Number of Guests">
 
-<textarea rows="6" placeholder="Tell us about your event"></textarea>
+<textarea placeholder="Tell us about your event..." required></textarea>
 
-<button type="submit" class="btn">
-Request Quote
-</button>
+<button class="btn" type="submit">Send Enquiry</button>
 
 </form>
 
@@ -171,13 +140,20 @@ Request Quote
 
 <footer>
 
-<p>© 2026 YUMMIES CO.</p>
+<h3>YUMMIES CO.</h3>
 
-<p>Luxury Catering • Care • Café • Home Meals</p>
+<p>Luxury Catering • Yummies Care • Kefi Café • Take Away</p>
+
+<p>Email: info@yummiesco.co.za</p>
+
+<p>Phone: +27 XX XXX XXXX</p>
+
+<p>&copy; <span class="year">2026</span> YUMMIES CO. All Rights Reserved.</p>
 
 </footer>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
